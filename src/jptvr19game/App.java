@@ -18,22 +18,33 @@ public class App {
         System.out.println("Привет");
         System.out.println("Программа загадала число, угадай его!:");
         Random random = new Random();
-        int myNumber = random.nextInt(5 - 0 + 1) + 0;
-        Scanner scanner = new Scanner(System.in);
-        int gamerNumber = scanner.nextInt();
-        if(myNumber == gamerNumber ){
-            System.out.println("Ты выйграл");
-            
-        }else{
-            System.out.println("Ты проиграл! Было выдумано:"
-            + myNumber);
-            
+        int attempt = 0;
+        do{
+            int myNumber = random.nextInt(5 - 0 + 1) + 0;
+            Scanner scanner = new Scanner(System.in);
+            int gamerNumber = scanner.nextInt();
+            if(myNumber == gamerNumber ){
+                System.out.println("Ты выйграл");
+                System.out.println("Число:" + myNumber);
+            }else{
+                if (attempt > 1) {
+                System.out.println("Ты проиграл! Было выдумано:"
+                    + myNumber);
+                break;
+                }else{
+                    System.out.println("Попробуй еще раз!");
+                }
+                attempt++;
+                
+                
+                
             
         }
-            
+        }while(true);   
     
         
     }
             
     
-}
+
+         }
